@@ -1,0 +1,59 @@
+@import "tailwindcss";
+@source "./index.html";
+@source "./src";
+
+html,
+body {
+    @apply bg-gray-50 text-gray-800 font-sans antialiased;
+}
+
+/* Theme variables (light & dark) */
+:root {
+    --color-bg: #f9fafb;
+    --color-border: #e5e7eb;
+    --color-muted: #6b7280;
+    --color-primary: #2563eb;
+    --color-surface: #ffffff;
+}
+
+.dark {
+    --color-bg: #0d1117;
+    --color-border: #2d333b;
+    --color-muted: #9ca3af;
+    --color-primary: #3b82f6;
+    --color-surface: #161b22;
+}
+
+/* Shared UI styles */
+.btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none hover:scale-[1.03] active:scale-[0.98];
+}
+
+.btn-primary {
+    @apply bg-[var(--color-primary)] text-white hover:bg-blue-500;
+}
+
+.btn-outline {
+    @apply border border-[var(--color-border)] bg-[var(--color-surface)] text-gray-700 dark:text-gray-200 hover:bg-gray-100/20;
+}
+
+.card {
+    @apply backdrop-blur-md bg-white/70 dark:bg-black/40 border border-[var(--color-border)] rounded-2xl shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-200;
+}
+
+/* Subtle fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.25s ease-out;
+}
